@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Text Processing</title>
+    <style>
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+  
+      textarea {
+        width: 100%;
+        max-width: 600px;
+        height: 100px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        resize: vertical;
+        font-size: 16px;
+      }
+  
+      button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4CAF50;
+        color: #ffffff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px;
+      }
+  
+      button:hover {
+        background-color: #45a049;
+      }
+  
+      #output {
+        white-space: pre-wrap;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+<body>
+  <textarea id="inputText"></textarea>
+  <button id="convert">Преобразовать</button>
+  <textarea id="output"></textarea>
+
+  <script>
+    function convertText() {
+      // Получаем введенный текст
+      var inputText = document.getElementById("inputText").value;
+    
+      // Массив предлогов
+      var prepositions = [
+        "на",
+        "за",
+        "о",
+        "об",
+        "от",
+        "при",
+        "со",
+        "до",
+        "к",
+        "из",
+        "у",
+        "во",
+        "и",
+        "а",
+        "не",
+        "с",
+        "в",
+        "РФ",
+        "по",
+        "её",
+        "к"
+      ];
+    
+      // Добавляем числа от 1 до 99 в массив предлогов
+      for (var i = 1; i <= 99; i++) {
+        prepositions.push(i.toString());
+      }
+    
+      // Исключаем "8 800 555-57-77" из замены
+      var exception = "8&nbsp; 800 555-57-77";
+      prepositions = prepositions.filter(item => item !== exception);
+    
+      // Регулярное выражение для поиска и замены
+      var regex = new RegExp("(\\s|^)(" + prepositions.join("|") + ") ", "g");
+    
+      // Заменяем пробелы после предлогов на &nbsp;
+      inputText = inputText.replace(regex, "$1$2&nbsp;");
+    
+      // Заменяем "8 800 555-57-77" на указанный HTML-код
+      var phoneNumberRegex = new RegExp("(\\s|^)(" + exception + ")(\\s|$)", "g");
+      inputText = inputText.replace(phoneNumberRegex, '$1<a class="link" border="0" href="https://image.sendsay.ru/image/sberbank333/web_content/calling/telScript2.html" style="margin: 0; text-decoration: none; font-family: Helvetica, Arial, sans-serif; white-space: nowrap; color: #7D838A;">' + exception + '</a>$3');
+    
+      // Заменяем длинное тире на &nbsp;&mdash;
+      inputText = inputText.replace(/—/g, '&mdash;');
+    
+      // Заменяем кавычки на &laquo; и &raquo;
+      inputText = inputText.replace(/«/g, "&laquo;");
+      inputText = inputText.replace(/»/g, "&raquo;");
+    
+      // Выводим результат в output
+      document.getElementById("output").value = inputText;
+    }
+
+    function convertOtherText(inputText) {
+      // Ваш код для замены других частей текста
+const regex = /(\S*)&nbsp;(\S*)/gm;
+const subst = '<span style="white-space: nowrap;">$1&nbsp;$2</span>';
+
+// Поиск ближайшей ссылки, начинающейся с http или https, без включения скобок и знаков препинания
+const linkRegex = /(?:http|https):\/\/\S+[^\s,.;:?!()\[\]{}"']/gi;
+const linkMatch = inputText.match(linkRegex);
+
+if (linkMatch) {
+const link = linkMatch[0];
+
+// Заменить "на&nbsp;сайте" и "сайт" и скопированную ссылку на <a> элемент
+inputText = inputText.replace(/(?:на&nbsp;сайте|сайт)\s*\([^)]*\)/g, (match) => {
+  // Определить, какую замену следует сделать
+  if (match.includes("на&nbsp;сайте")) {
+    return '<a href="' + link + '" style="border-bottom: 1px solid #d1d1d1; margin: 0; text-decoration: none; color: #7D838A; font-family: Arial, Helvetica, sans-serif; white-space: nowrap;" target="_blank">на сайте</a>';
+  } else if (match.includes("сайт")) {
+    return '<a href="' + link + '" style="border-bottom: 1px solid #d1d1d1; margin: 0; text-decoration: none; color: #7D838A; font-family: Arial, Helvetica, sans-serif; white-space: nowrap;" target="_blank">сайт</a>';
+  }
+  // Если нет совпадений, вернуть оригинальный текст
+  return match;
+});
+}
+
+
+      // Добавляем правило для "сайт" и ссылки в скобках
+      const siteLinkRegex = /(сайт\s*\([^)]*\))/g;
+      const siteLinkReplacement = '<a href="-----" style="border-bottom: 1px solid #d1d1d1; margin: 0; text-decoration: none; color: #7D838A; font-family: Arial, Helvetica, sans-serif; white-space: nowrap;" target="_blank">$1</a>';
+      inputText = inputText.replace(siteLinkRegex, siteLinkReplacement);
+
+// Правило для обертывания слова и &mdash; в <span style="white-space: nowrap;"></span> с пробелом
+const regexDashWithPreviousWord = /(\S+)\s*&mdash;/g;
+const substDashWithPreviousWord = '$1&nbsp;&mdash;';
+inputText = inputText.replace(regexDashWithPreviousWord, substDashWithPreviousWord);
+
+
+
+
+
+      // Добавляем правило для "ПАО Сбербанк"
+      const resultWithNonBreaking = inputText
+        .replace(regex, subst)
+        .replace(/(ПАО Сбербанк)/gm, '<span style="white-space: nowrap;">$1</span>');
+
+
+      // Правило для ОГРН
+      const regexOGRN = /(ОГРН\s*\d{13}[.,]?)/gm;
+      const substOGRN =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для адреса
+      const regexAddress = /(адрес:\s*\d{6}[.,]?)/gm;
+      const substAddress =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для города
+      const regexCity = /(г\.\s*[А-Яа-яЁёA-Za-z]{3,}[.,]?)/gm;
+
+      const substCity =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для улицы
+      const regexStreet = /(ул\.\s*[А-Яа-яЁёA-Za-z]{3,}[.,]?)/gm;
+
+      const substStreet =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для помещения
+      const regexPom = /(пом\.\s*[А-Яа-яЁёA-Za-z]{3,}[.,]?)/gm;
+
+      const substPom =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для строения
+      const regexStructure = /(стр\.\s*[А-Яа-яЁёA-Za-z]+\s*[.,]?)/gm;
+
+      const substStructure =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для офиса
+      const regexOffice = /(оф\.\s*[А-Яа-яЁёA-Za-z]{3,}\s*[.,]?)/gm;
+
+      const substOffice =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для дома
+      const regexHouse = /(д\.\s*\d+[.,]?)/gm;
+
+      const substHouse =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+      // Правило для этажа
+      const regexFloor = /(эт\.\s*\d+[.,]?)/gm;
+
+      const substFloor =
+        '<a class="link" border="0" style="margin:0; text-decoration:none; color:#7D838A; font-family: Helvetica, Arial, sans-serif; white-space: nowrap;">$1</a>';
+
+        // Правило для "№ 223-ФЗ"
+const regexLaw223FZ = /№\s*223-ФЗ/gm;
+const substLaw223FZ = '<span style="white-space: nowrap;">$&</span>';
+
+// Правило для "№ 44-ФЗ"
+const regexLaw44FZ = /№\s*44-ФЗ/gm;
+const substLaw44FZ = '<span style="white-space: nowrap;">$&</span>';
+
+// Правило для "№ 615-ПП"
+const regexLaw615PP = /№\s*615-ПП/gm;
+const substLaw615PP = '<span style="white-space: nowrap;">$&</span>';
+
+    // Правило для "0321"
+const regex0321 = /\b0321\b/gm;
+const subst0321 = '<a class="link" border="0" href="https://image.sendsay.ru/image/sberbank333/web_content/calling/0321.html" style="margin: 0; text-decoration: none; font-family: Helvetica, Arial, sans-serif; white-space: nowrap; color: #7D838A;">0321</a>';
+
+
+
+// Применяем все правила
+const finalResult = resultWithNonBreaking
+.replace(regexOGRN, substOGRN)
+.replace(regexAddress, substAddress)
+.replace(regexCity, substCity)
+.replace(regexStreet, substStreet)
+.replace(regexPom, substPom)
+.replace(regexStructure, substStructure)
+.replace(regexOffice, substOffice)
+.replace(regexHouse, substHouse)
+.replace(regexFloor, substFloor)
+.replace(regexLaw223FZ, substLaw223FZ)
+.replace(regexLaw44FZ, substLaw44FZ)
+.replace(regexLaw615PP, substLaw615PP)
+.replace(regex0321, subst0321);
+
+
+// Используем textarea для вывода редактируемого текста
+return finalResult;
+    }
+
+    document.getElementById("convert").addEventListener("click", function () {
+      convertText(); // Вызываем первую функцию
+      const inputText = document.getElementById("output").value; // Получаем результат первой функции
+      const finalResult = convertOtherText(inputText); // Вызываем вторую функцию
+      document.getElementById("output").value = finalResult; // Выводим окончательный результат
+    });
+  </script>
+
+  <!-- Дополнительные скрипты и стили -->
+</body>
+</html>

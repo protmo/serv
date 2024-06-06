@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="https://image.sendsay.ru/image/sberbank333/cke/202009/210913/ico.png">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <title>Razmetka</title>
+</head>
+
+<body>
+  <main class="main-page">
+    <form class="page-form">
+      <h1 class="page-form__header">utm-разметка ссылок и персонализация смс</h1>
+      <div class="form-row">
+        <label class="form-label" for="q936">Статус смс</label>
+        <div class="input-box input-box--row">
+          <ul class="page-form__fieldset-list" style="display: flex;">
+            <li class="page-form__fieldset-field field-radio li-item">
+              <label class="field-radio__label" for="new">
+                <input class="field-radio__input visually-hidden" data-group="01" id="new" name="01" type="radio"
+                  value="true" checked="checked">
+                <span class="field-radio__input-element"></span>
+                <span class="field-radio__text">Новая смс</span>
+              </label>
+            </li>
+            <li class="page-form__fieldset-field field-radio">
+              <label class="field-radio__label field-radio__label--second" for="valid">
+                <input class="page-form__input field-radio__input visually-hidden" data-group="01" id="valid" name="01"
+                  type="radio" value="false">
+                <span class="field-radio__input-element"></span>
+                <span class="field-radio__text">Валидация</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="q936">Вид разметки</label>
+        <div class="input-box input-box--row">
+          <ul class="page-form__fieldset-list" style="display: flex;">
+            <li class="page-form__fieldset-field field-radio li-item">
+              <label class="field-radio__label" for="full">
+                <input class="field-radio__input visually-hidden" data-group="02" id="full" name="02" type="radio"
+                  value="true" checked="checked">
+                <span class="field-radio__input-element"></span>
+                <span class="field-radio__text">Полная</span>
+              </label>
+            </li>
+            <li class="page-form__fieldset-field field-radio" style="padding-left: 34px;">
+              <label class="field-radio__label field-radio__label--second" for="pers">
+                <input class="page-form__input field-radio__input visually-hidden" data-group="02" id="pers" name="02"
+                  type="radio" value="false">
+                <span class="field-radio__input-element"></span>
+                <span class="field-radio__text">Только персонализация</span>
+              </label>
+            </li>
+            <li class="page-form__fieldset-field field-radio" style="padding-left: 35px;">
+              <label class="field-radio__label field-radio__label--second" for="dccvmid">
+                <input class="page-form__input field-radio__input visually-hidden" data-group="02" id="dccvmid"
+                  name="02" type="radio" value="false">
+                <span class="field-radio__input-element"></span>
+                <span class="field-radio__text">dccvmid в utm_source</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="label-box">
+          <label class="form-label" for="q532">Название продукта</label>
+          <div class="label-spacer"></div>
+        </div>
+        <div class="input-box">
+          <div class="row">
+            <select name="" id="product" data-type="" class="form-select form-select--channel form-select-custom btn">
+              <option value="korus-1c">1С-Битрикс.Корус</option>
+              <option value="2gis">2ГИС</option>
+              <option value="akkreditiv">Аккредитивы</option>
+              <option value="bankovskaya-garantia">Банковская гарантия</option>
+              <option value="unlim-samoinkassatsia">
+                Безлимитная самоинкассация
+              </option>
+              <option value="unlim-platezhy">Безлимитные платежи</option>
+              <option value="bezopasnaia-sdelka">Безопасная сделка</option>
+              <option value="business-direct">Бизнес-Директ</option>
+              <option value="business-card">Бизнес-карта</option>
+              <option value="business-card-pos">Бизнес-карта. POS</option>
+              <option value="buhgalteria-ip">
+                Бухгалтерия для ИП. СберРешения
+              </option>
+              <option value="valutny-control">Валютный контроль</option>
+              <option value="korus-vkomandirovke">Вкомандировке. Корус</option>
+              <option value="vypiski-raspisanie">Выписки по расписанию</option>
+              <option value="ved-klyuch">ВЭД под ключ</option>
+              <option value="deposit">Депозиты</option>
+              <option value="payroll">Зарплатные проекты</option>
+              <option value="zaschita-sotrudnikov">
+                Защита сотрудников. СБСЖ
+              </option>
+              <option value="inkassatsia">Инкассация</option>
+              <option value="internet-acquiring">Интернет-эквайринг</option>
+              <option value="valutny-control-informing">
+                Информирование о событиях валютного контроля
+              </option>
+              <option value="korus-isu">ИСУ. Корус</option>
+              <option value="korus-hr">Кадры. Корус</option>
+              <option value="compliance">Комплаенс-помощник. СберРешения</option>
+              <option value="conversion">Конверсионные операции</option>
+              <option value="constructor-docs">Конструктор документов</option>
+              <option value="corp-university">Корпоративный университет</option>
+              <option value="credit-business-card">Кредитная бизнес-карта</option>
+              <option value="credit-business-card-pos">
+                Кредитная бизнес-карта. POS
+              </option>
+              <option value="credit">Кредитование</option>
+              <option value="leasing">Лизинг</option>
+              <option value="korus-markirovka">Маркировка. Корус</option>
+              <option value="business-card-momentum">
+                Моментальная бизнес-карта
+              </option>
+              <option value="buhgalteria-outsourcing">
+                Моя бухгалтерия Аутсорсинг. СберРешения
+              </option>
+              <option value="buhgalteria-oline">Моя бухгалтерия Онлайн</option>
+              <option value="torgovlia">Моя Торговля</option>
+              <option value="tax-consultinng">
+                Налоговое консультирование. Сбер Решения
+              </option>
+              <option value="nalogovy-vychet">
+                Налоговый Вычет. Сбер Решения
+              </option>
+              <option value="oborotny-credit">Оборотный кредит</option>
+              <option value="overdraft-credit">Овердрафт</option>
+              <option value="ved-rubles">Опция ВЭД рубли</option>
+              <option value="korus-otchetnost-gov">
+                Отчетность в государственные органы. Корус
+              </option>
+              <option value="credit-business-card-partners">
+                Партнерская программа КБК
+              </option>
+              <option value="Follperevody-bcowUp">Переводы с бизнес-карт</option>
+              <option value="perevody-bc-api">Переводы с бизнес-карт. API</option>
+              <option value="pay-qr">Плати QR</option>
+              <option value="b2b-platform">Платформа В2В</option>
+              <option value="bbp-platform">Платформа BBP</option>
+              <option value="podpiska-spravki">Подписка на справки</option>
+              <option value="bbp-pro">Подписка BBP Pro</option>
+              <option value="portal-da">Портал DA</option>
+              <option value="business-card-premium">
+                Премиальная бизнес-карта
+              </option>
+              <option value="priem-platezhey">Прием платежей ФЛ</option>
+              <option value="proverka-sotrudnika">Проверка сотрудника</option>
+              <option value="spasibo-business">
+                Программа лояльности «Спасибо Бизнес»
+              </option>
+              <option value="other-products">Прочие продукты</option>
+              <option value="other-products-ecosystem">
+                Прочие продукты экосистемы
+              </option>
+              <option value="ved-bez-granits">ПУ ВЭД без границ</option>
+              <option value="legky-start">ПУ Легкий старт</option>
+              <option value="nabiraya-oboroty">ПУ Набирая обороты</option>
+              <option value="polnym-khodom">ПУ Полным ходом</option>
+              <option value="tolko-dlya-ip">ПУ Только для ИП</option>
+              <option value="korus-rating-ul">Рейтинг ЮЛ. Корус</option>
+              <option value="credit-refinance">Рефинансирование кредита</option>
+              <option value="risk-blokirovki">Риск Блокировки счёта</option>
+              <option value="sbbol">СББОЛ</option>
+              <option value="analytics">СберАналитика</option>
+              <option value="businessbot">СберБизнесБот</option>
+              <option value="sberegi-business">Сбереги бизнес. СБС</option>
+              <option value="health">СберЗдоровье</option>
+              <option value="clickstream">СберКликстрим</option>
+              <option value="logistic">СберЛогистика</option>
+              <option value="mobile">СберМобайл</option>
+              <option value="sberrating">СберРейтинг</option>
+              <option value="spasibo">СберСпасибо</option>
+              <option value="korus-proverka-kontragenta">
+                Сервис проверки контрагентов. Корус
+              </option>
+              <option value="citymobil">Ситимобил</option>
+              <option value="smart-guarantee">СМАРТ-гарантия</option>
+              <option value="smart-credit">СМАРТ-кредит</option>
+              <option value="smart-credit-business-card">
+                СМАРТ-кредитная бизнес-карта
+              </option>
+              <option value="smart-leasing">СМАРТ-лизинг</option>
+              <option value="smart-oborot">СМАРТ-оборот</option>
+              <option value="smart-overdraft">СМАРТ-овердрафт</option>
+              <option value="smart-pos-2v1">Смарт-POS 2в1</option>
+              <option value="informing-business-card">
+                СМС-информирование по бизнес-карте
+              </option>
+              <option value="informing-schet">
+                СМС-информирование по расчётному счёту
+              </option>
+              <option value="insurance">Страхование</option>
+              <option value="business-card-insurance">
+                Страхование бизнес-карт
+              </option>
+              <option value="tamozheny-platezh">Таможенные платежи</option>
+              <option value="toplivny-reshenye">Топливное решение</option>
+              <option value="acquiring">Торговый эквайринг</option>
+              <option value="factoring">Факторинг</option>
+              <option value="business-card-digital">Цифровая бизнес-карта</option>
+              <option value="evotor-terminal-rent">
+                Эвотор. Аренда смарт-терминала
+              </option>
+              <option value="evotor-marketplace">Эвотор. Маркетплейс</option>
+              <option value="na-polke">Эвотор. на_полке</option>
+              <option value="evotor-terminal-byu">
+                Эвотор. Покупка смарт-терминала
+              </option>
+              <option value="korus-edo">ЭДО. Корус</option>
+              <option value="korus-etsp">Электронная подпись. Корус</option>
+              <option value="korus-archive">Электронный архив. Корус</option>
+              <option value="yurist-business">Юрист для бизнеса</option>
+              <option value="b2b-platezh">B2B-платежи</option>
+              <option value="crm24">CRM24</option>
+              <option value="delivery-club">Delivery Club</option>
+              <option value="rabota">Rabota.ru</option>
+              <option value="sbercloud">SberCloud</option>
+              <option value="cberdevices">SberDevices</option>
+              <option value="sperpay">SberPay</option>
+              <option value="taponphone">TapOnPhone</option>
+              <option value="business-card-travel">Travel бизнес-карта</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row row--bottom">
+        <textarea class="form-input form-text" id="smsText" name="" cols="60" rows="7"
+          placeholder="Текст смс"></textarea>
+      </div>
+      <div class="row">
+        <input class="form-input form-input--black" type="text" name="" id="smsLink" placeholder="Ссылка" />
+      </div>
+      <div class="row">
+        <input class="form-input form-input--black" type="text" name="" id="campName" placeholder="Наз.кампании" />
+      </div>
+      <div class="row row--bottom">
+        <textarea id="textResult" class="form-text" name="" cols="60" rows="7"></textarea>
+      </div>
+      <div class="row last-row">
+        <textarea id="linkResult" class="form-text" name="" cols="60" rows="7"></textarea>
+      </div>
+      <div class="bottom-nav__btns">
+        <input id="create" type="button" class="btn create-btn" value="Сформировать" />
+        <input type="reset" class="btn btn-cancel" value="Очистить" />
+        <input id="download" type="button" class="link" value="Скачать Word" />
+        <a href="" id="link1" target="_blank" class="link">Проверить ссылку</a>
+      </div>
+    </form>
+  </main>
+  <script>
+    function send() {
+      var text = document.getElementById("campName").value;
+      var transl = new Array();
+      transl["А"] = "a";
+      transl["а"] = "a";
+      transl["Б"] = "b";
+      transl["б"] = "b";
+      transl["В"] = "v";
+      transl["в"] = "v";
+      transl["Г"] = "g";
+      transl["г"] = "g";
+      transl["Д"] = "d";
+      transl["д"] = "d";
+      transl["Е"] = "e";
+      transl["е"] = "e";
+      transl["Ё"] = "yo";
+      transl["ё"] = "yo";
+      transl["Ж"] = "zh";
+      transl["ж"] = "zh";
+      transl["З"] = "z";
+      transl["з"] = "z";
+      transl["И"] = "i";
+      transl["и"] = "i";
+      transl["Й"] = "j";
+      transl["й"] = "j";
+      transl["К"] = "k";
+      transl["к"] = "k";
+      transl["Л"] = "l";
+      transl["л"] = "l";
+      transl["М"] = "m";
+      transl["м"] = "m";
+      transl["Н"] = "n";
+      transl["н"] = "n";
+      transl["О"] = "o";
+      transl["о"] = "o";
+      transl["П"] = "p";
+      transl["п"] = "p";
+      transl["Р"] = "r";
+      transl["р"] = "r";
+      transl["С"] = "s";
+      transl["с"] = "s";
+      transl["Т"] = "t";
+      transl["т"] = "t";
+      transl["У"] = "u";
+      transl["у"] = "u";
+      transl["Ф"] = "f";
+      transl["ф"] = "f";
+      transl["Х"] = "x";
+      transl["х"] = "x";
+      transl["Ц"] = "c";
+      transl["ц"] = "c";
+      transl["Ч"] = "ch";
+      transl["ч"] = "ch";
+      transl["Ш"] = "sh";
+      transl["ш"] = "sh";
+      transl["Щ"] = "sh";
+      transl["щ"] = "sh";
+      transl["Ы"] = "Y";
+      transl["ы"] = "y";
+      transl["Э"] = "e";
+      transl["э"] = "e";
+      transl["Ю"] = "yu";
+      transl["ю"] = "yu";
+      transl["Я"] = "ya";
+      transl["я"] = "ya";
+      transl["_"] = "-";
+      transl["A"] = "a";
+      transl["a"] = "a";
+      transl["B"] = "b";
+      transl["b"] = "b";
+      transl["C"] = "c";
+      transl["c"] = "c";
+      transl["D"] = "d";
+      transl["d"] = "d";
+      transl["E"] = "e";
+      transl["e"] = "e";
+      transl["F"] = "f";
+      transl["f"] = "f";
+      transl["G"] = "g";
+      transl["g"] = "g";
+      transl["H"] = "h";
+      transl["h"] = "h";
+      transl["J"] = "j";
+      transl["j"] = "j";
+      transl["I"] = "i";
+      transl["i"] = "i";
+      transl["K"] = "k";
+      transl["k"] = "k";
+      transl["L"] = "l";
+      transl["l"] = "l";
+      transl["M"] = "m";
+      transl["m"] = "m";
+      transl["N"] = "n";
+      transl["n"] = "n";
+      transl["O"] = "o";
+      transl["o"] = "o";
+      transl["P"] = "p";
+      transl["p"] = "p";
+      transl["Q"] = "q";
+      transl["q"] = "q";
+      transl["R"] = "r";
+      transl["r"] = "r";
+      transl["S"] = "s";
+      transl["s"] = "s";
+      transl["T"] = "t";
+      transl["t"] = "t";
+      transl["U"] = "u";
+      transl["u"] = "u";
+      transl["V"] = "v";
+      transl["v"] = "v";
+      transl["W"] = "w";
+      transl["w"] = "w";
+      transl["X"] = "x";
+      transl["x"] = "x";
+      transl["Y"] = "y";
+      transl["y"] = "y";
+      transl["Z"] = "z";
+      transl["z"] = "z";
+      transl["1"] = "1";
+      transl["2"] = "2";
+      transl["3"] = "3";
+      transl["4"] = "4";
+      transl["5"] = "5";
+      transl["6"] = "6";
+      transl["7"] = "7";
+      transl["8"] = "8";
+      transl["9"] = "9";
+      transl["0"] = "0";
+    
+      var result = "";
+      for (i = 0; i < text.length; i++) {
+        if (transl[text[i]] != undefined) {
+          result += transl[text[i]];
+        } else {
+          if (text[i] == " ") {
+            result = result + "-";
+          }
+        }
+      }
+      campName = result;
+    }
+    
+    var campName;
+    var product = document.getElementById("product");
+    var btnCreate = document.getElementById("create");
+    var textResult = document.getElementById("textResult");
+    var linkResult = document.getElementById("linkResult");
+    var btnDocDowload = document.getElementById("download");
+    var link = "";
+    var text = document.getElementById("smsText");
+    var full = document.getElementById("full");
+    var onlyPers = document.getElementById("pers");
+    var dccvmid = document.getElementById("dccvmid");
+    var isNew = document.getElementById("new");
+    var isValid = document.getElementById("valid");
+    
+    function getFormatDate() {
+      var d = new Date(),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+    
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+    
+      return [day, month, year].join("");
+    }
+    
+    var dateForUtm;
+    
+    function smsTextPerson(text) {
+      var textArr = text.split(" ");
+      var result = "";
+      var perArr = [
+        "[##CUSTOM_INFO_11##]",
+        "[##CUSTOM_INFO_12##]",
+        "[##CUSTOM_INFO_7##]",
+        "[##CUSTOM_INFO_5##]",
+        "[##CUSTOM_INFO_4##]",
+      ];
+      var persLink = "[##CUSTOM_INFO_10##]"+'&nbsp;';
+      var j = 0;
+    
+      for (i = 0; i < textArr.length; i++) {
+        if (
+          /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?/.test(
+            textArr[i]
+          )
+        ) {
+          result =
+            result +
+            " " +
+            textArr[i].replace(
+              /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?/,
+              persLink
+            );
+          i++;
+        }
+        if (/\/\/.*|\[[^]*?\]/g.test(textArr[i])) {
+          result =
+            result + " " + textArr[i].replace(/\/\/.*|\[[^]*?\]/g, perArr[j]);
+          j++;
+        } else {
+          result = result + " " + textArr[i];
+        }
+      }
+      return result;
+    }
+    
+    function createText() {
+      textResult.value = smsTextPerson(text.value).trim();
+    }
+    
+    function createLink() {
+      linkResult.value =
+        link +
+        "?utm_source=sms-kb&utm_medium=sms&utm_campaign=" +
+        product.value +
+        "&utm_content=" +
+        campName +
+        "&utm_term=" +
+        dateForUtm +
+        "&dccvmid=[##CUSTOM_INFO_8##]&sascamp=[##CUSTOM_INFO_9##]";
+    }
+    
+    function changeURL() {
+      if (valid.checked) {
+        var str = validation();
+        document.getElementById("link1").href = linkResult.value =
+          str[0] +
+          "&" +
+          str[1] +
+          "&" +
+          str[2] +
+          "&" +
+          str[3] +
+          "&" +
+          "&utm_term=" +
+          dateForUtm +
+          str[5] +
+          str[6];
+      } else {
+        var str = findSimb();
+      }
+    
+      var anhor = "";
+    
+      if (str != false) {
+        link = str[0];
+        anhor = "#" + str[1];
+      }
+    
+      if (full.checked) {
+        document.getElementById("link1").href = linkResult.value =
+          link +
+          "?utm_source=sms-kb&utm_medium=sms&utm_campaign=" +
+          product.value +
+          "&utm_content=" +
+          campName +
+          "&utm_term=" +
+          dateForUtm +
+          "&dccvmid=[##CUSTOM_INFO_8##]&sascamp=[##CUSTOM_INFO_9##]" +
+          anhor;
+      } else if (onlyPers.checked) {
+        document.getElementById("link1").href = linkResult.value =
+          link + "?dccvmid=[##CUSTOM_INFO_8##]&sascamp=[##CUSTOM_INFO_9##]" + anhor;
+      } else {
+        document.getElementById("link1").href = linkResult.value =
+          link +
+          "?utm_source=[##CUSTOM_INFO_8##]" +
+          "&utm_medium=sms" +
+          "&utm_campaign=" +
+          product.value +
+          anhor;
+      }
+    }
+    
+    function validation() {
+      var str = link;
+      return str.split("&");
+    }
+    
+    function findSimb() {
+      if (link.indexOf("#") > -1) {
+        var str = link;
+        var substringArray = str.split("#");
+        return substringArray;
+      } else return false;
+    }
+    
+    function create() {
+      link = document.getElementById("smsLink");
+      link = link.value.trim();
+      dateForUtm = getFormatDate();
+      send();
+      createText();
+      createLink();
+      changeURL();
+    }
+    
+    function Export2Word() {
+      var preHtml =
+        "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+      var postHtml = "</body></html>";
+      var textResult = document.getElementById("textResult").value;
+      var linkResult = document.getElementById("linkResult").value;
+      // var table =
+      //   '<table width="700" height="700" cellpadding="0" cellspacing="0" style="float: left; width: 700px; border: 1px solid black; height: 700px;">' +
+      //   '<tbody> <tr> <td width="350" style="width: 350px; border: 1px solid black;"> <p><strong>SMS_TEXT</strong></p> </td>' + 
+      //   '<td width="350" style="width: 350px; border: 1px solid black;"> <p><strong>LINK</strong></p> </td>' + 
+      //   '</tr> <tr> <td width="350" style="width: 350px; border: 1px solid black;"> <p>' +
+      //   textResult +
+      //   '</p> </td><td width="350" style="width: 350px; border: 1px solid black; word-wrap: break-word;">' + 
+      //   '<p style="width: 350px; word-wrap: break-word;">' +
+      //   linkResult +
+      //   "</p></td></tr></tbody></table>";
+      var table =
+              '<div style="border: 1px solid black; width: 350px; float: left;"><p><strong>SMS_TEXT</strong></p></div>' + 
+              '<div style="border: 1px solid black; width: 350px; float: left;"><p>' + textResult + '</p></div>' +
+              '<div style="border: 1px solid black; width: 350px; float: left;"><p><strong>LINK</strong></p></div>' +
+              '<div style="border: 1px solid black; width: 350px; float: left;"><p>' + linkResult + '</p></div>';
+      var html = preHtml + table + postHtml;
+      var blob = new Blob(["\ufeff", html], {
+        type: "application/msword",
+      });
+      var url =
+        "data:application/vnd.ms-word;charset=utf-8," + encodeURIComponent(html);
+      filename = product.value + "_" + campName + "_" + dateForUtm + "_" + "cvmlabcg-" + ".doc";
+      var downloadLink = document.createElement("a");
+      document.body.appendChild(downloadLink);
+    
+      if (navigator.msSaveOrOpenBlob) {
+        navigator.msSaveOrOpenBlob(blob, filename);
+      } else {
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        downloadLink.click();
+      }
+      document.body.removeChild(downloadLink);
+    }
+    
+    btnDocDowload.addEventListener("click", Export2Word);
+    btnCreate.addEventListener("click", create);
+    
+
+  </script>
+</body>
+
+</html>

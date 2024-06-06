@@ -1,0 +1,28 @@
+<style>
+    .gray {
+        background-color: #ccc;  /* Цвет фона */
+    }
+      .highlight {
+        color: blue;
+    }
+      mark {
+        background-color: #ff0;  /* Цвет выделения */
+        color: #000;  /* Цвет текста */
+    }
+    </style>
+    
+    <h2>Ссылки</h2>
+    <table>
+        <tr>
+            <th>Оригинал</th>
+            <th>Декодированный</th>
+        </tr>
+        <% for(let i=0; i < linkData.length; i++) { %>
+            <tr class="<%= i % 2 === 0 ? 'gray' : '' %>">
+                <td><%- linkData[i].original %></td>
+                <td><%- linkData[i].decoded %></td>
+            </tr>
+        <% } %>
+          <a href="/check-utm">Проверить utm</a>
+    </table>
+    
